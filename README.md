@@ -51,7 +51,7 @@
 - [Support Group](https://telegram.dog/t_projects)
 
 ### License & Copyright :
-- This Project is [Apache-2.0](https://github.com/TheWhatsBot/WhatsBot/blob/main/LICENSE) Licensed
+- This Project is [Apache-2.0](https://github.com/cachecleanerjeet/Contact-Form/blob/main/LICENSE) Licensed
 - Copyright 2021 by [Tuhin Kanti Pal](https://github.com/cachecleanerjeet)
 
 
