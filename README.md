@@ -27,7 +27,7 @@
 - Paste this Script  :
 
 ```html
-<script src="http://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js" id="contactform" form_worker_url="https://yourapp.example.workers.dev/"></script>
+<script src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js" id="contactform" form_worker_url="https://yourapp.example.workers.dev/"></script>
 
 <!-- Replace https://yourapp.example.workers.dev with your backend url-->
 ```
