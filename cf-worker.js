@@ -50,7 +50,7 @@ async function handleRequest(request) {
             const sendmessage = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 body: JSON.stringify({
                     chat_id: CHATID,
-                    text: `<b>New Contact Request Recieved</b>\n\n<b>IP: </b><code>${request.headers.get("cf-connecting-ip")}</code>\n<b>Name: </b><code>${name}</code>\n<b>Phone No: </b><code>${phone_no}</code>\n<b>Email: </b><code>${email}</code>\n<b>Subject: </b><code>${subject}</code>\n<b>Message: </b><code>${message}</code>`,
+                    text: `<b>New Contact Request Recieved</b>\n\n<b>IP: </b><code>${request.headers.get("cf-connecting-ip")}</code>\n<b>Name: </b><code>${name}</code>\n<b>Phone No: </b>${phone_no}\n<b>Email: </b>${email}\n<b>Subject: </b><code>${subject}</code>\n<b>Message: </b><code>${message}</code>`,
                     parse_mode: 'HTML'
                 }),
                 method: "POST",
