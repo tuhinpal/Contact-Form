@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+[![Contact Form](https://telegra.ph/file/052787c00bcbc37cb88a0.png "Contact Form")](https://github.com/cachecleanerjeet/Contact-Form "Contact Form")
 
-You can use the [editor on GitHub](https://github.com/cachecleanerjeet/Contact-Form/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+------------
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Features :
 
-### Markdown
+- Cool Layout
+- Message goes on your Telegram
+- 7 KB of JS Code 
+- Serverless Backend (Cloudflare Worker)
+- One Line of Integration
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Deploy :
 
-# Header 1
-## Header 2
-### Header 3
+**Setup the Backend  👇**
 
-- Bulleted
-- List
+- Create a Telegram Bot from [Botfather](http://telegram.dog/botfather "Botfather") & Grab the Token.
+- Goto your created bot and send <code>/start</code>.
+- Now GoTo  [userinfobot](http://telegram.dog/userinfobot "userinfobot") send it any message it will give your Telegram ID (9 Digit) and copy the ID.
+- Open <code>[cf-worker.js](https://github.com/cachecleanerjeet/Contact-Form/blob/main/cf-worker.js "cf-worker.js")</code> and copy the whole code.
+- Go to <code>[Cloudflare Workers](https://workers.cloudflare.com/ "Cloudflare Workers")</code> and create a worker & paste the copied code.
+- Replace the <code>BOT_TOKEN</code> & <code>CHATID</code> with your previously copied Bot Token and User ID.
+- Save and Deploy & copy the Worker Url
 
-1. Numbered
-2. List
+**Connect it with your website 👇**
+- Paste this Script  :
 
-**Bold** and _Italic_ and `Code` text
+```html
+<script src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js" id="contactform" form_worker_url="https://yourapp.example.workers.dev/"></script>
 
-[Link](url) and ![Image](src)
+<!-- Replace https://yourapp.example.workers.dev with your backend url-->
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**Use The Backend API 👇**
+- This is very simple to, Just do a POST or GET request with this JSON Body 
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cachecleanerjeet/Contact-Form/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```json
+{
+   "name" : "Tuhin Kanti Pal",
+   "phone_no" : "000000000",
+   "email" : "me@thetuhin.com",
+   "subject" : "Just a Testing",
+   "message" : "Just a Testing"
+}
+```
 
-### Support or Contact
+### Connect :
+- [Channel](https://telegram.dog/tprojects)
+- [Support Group](https://telegram.dog/t_projects)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### License & Copyright :
+- This Project is [Apache-2.0](https://github.com/cachecleanerjeet/Contact-Form/blob/main/LICENSE) Licensed
+- Copyright 2021 by [Tuhin Kanti Pal](https://github.com/cachecleanerjeet)
+
+
+
+
+
