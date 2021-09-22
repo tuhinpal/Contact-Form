@@ -67,12 +67,84 @@
   font-size: 18px;
 }
 
+/* Animation Starts */
+
 .contact-form-cf .icon {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
 }
 
+.contact-form-cf .icon::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+
+  .contact-form-cf .icon:hover, .icon:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+
+  .contact-form-cf .icon:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+
+  .contact-form-cf .icon:hover::before {
+    opacity: 1;
+  }
+  .contact-form-cf .icon:focus::before {
+    opacity: 1;
+  }
+
+  .contact-form-cf .icon::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .contact-form-cf .icon:hover::after {
+    animation: none;
+    display: none;
+  }
+  .contact-form-cf .icon:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Animation Ends */
 .contact-form-cf .box.showing .m-cf-icon-default {
   opacity: 0;
   -webkit-transform: scale(0);

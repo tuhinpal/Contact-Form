@@ -1,7 +1,7 @@
 // Error & success message
 var cferrmsg = `<h3 class="title">Error</h3><p>Sorry, an error occurred while receiving your message, Try to contact with me in another method.</p>`;
 var cfsuccessmsg = `<h3 class="title">Message Sent</h3><p>Your message has been successfully came to me, I will contact with you soon. 🍻</p>`;
-var cfformcontent = `<h3 class="title">Contact</h3><p>Send me a message I will contact with you soon.</p><div><input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="Name" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="Email" autocomplete="off" data-required="true" data-validation="email"><input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="Phone No" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="Subject" autocomplete="off" data-required="true"><textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="Your message" data-required="true"></textarea><button id="cfbutton" onclick="cfmessageSend()" class="form-button color">Send your message</button><a href="https://github.com/cachecleanerjeet/Contact-Form" class="cfpromo">Powered by Contact Form</a></div>`;
+var cfformcontent = `<h3 class="title">Contact</h3><p>Send me a message I will contact with you soon.</p><div><input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="Name" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="Email" autocomplete="off" data-required="true" data-validation="email"><input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="Phone No" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="Subject" autocomplete="off" data-required="true"><textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="Your message" data-required="true"></textarea><button id="cfbutton" onclick="cfmessageSend()" class="form-button color">Send your message</button></div>`;
 
 window.onload = () => {
   // init everything after page load
@@ -10,7 +10,7 @@ window.onload = () => {
   var cfstylesheet = document.createElement("link");
   cfstylesheet.rel = "stylesheet";
   cfstylesheet.href =
-    "https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/style.min.css";
+    "https://cdn.jsdelivr.net/gh/anshumanfauzdar/contact-form@master/src/style.min.css";
   document.getElementsByTagName("head")[0].appendChild(cfstylesheet);
 
   cfstylesheet.onload = function () {
