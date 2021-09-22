@@ -10,7 +10,7 @@ window.onload = () => {
   var cfstylesheet = document.createElement("link");
   cfstylesheet.rel = "stylesheet";
   cfstylesheet.href =
-    "https://cdn.jsdelivr.net/gh/anshumanfauzdar/contact-form@v2/src/style.css";
+    "https://raw.githubusercontent.com/AnshumanFauzdar/Contact-Form/main/src/style.css";
   document.getElementsByTagName("head")[0].appendChild(cfstylesheet);
 
   cfstylesheet.onload = function () {
