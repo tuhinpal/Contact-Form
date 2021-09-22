@@ -17,7 +17,7 @@ window.onload = () => {
     // If css loaded, add main html to body
     var cfdiv = document.createElement("section");
     cfdiv.classList.add("contact-form-cf");
-    cfdiv.innerHTML = `<div class="box right-button" id="cf" style="display: inline-block; z-index: 9999;"><div class="button color" onclick="cfClick();"><span class="m-cf-icon-default"><i class="material-icons">email</i></span><span class="icon"><i class="material-icons">close</i></span></div><div class="panel" id="cfcontent"></div></div>`;
+    cfdiv.innerHTML = `<div class="box right-button" id="cf" style="display: inline-block; z-index: 9999;"><div class="button color animation" onclick="cfClick();"><span class="m-cf-icon-default"><i class="material-icons">email</i></span><span class="icon"><i class="material-icons">close</i></span></div><div class="panel" id="cfcontent"></div></div>`;
     document.getElementsByTagName("body")[0].appendChild(cfdiv);
 
     // check localstorage for if he already sent a message
