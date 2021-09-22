@@ -73,16 +73,22 @@
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
+
+}
+
+
+
+/* Animation Ends */
+.contact-form-cf .box.showing .m-cf-icon-default {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
 }
 
-.contact-form-cf .icon::before {
+.contact-form-cf .box.showing .m-cf-icon-default::before {
   content: '';
-    border-radius: 1000px;
-    min-width: calc(300px + 12px);
-    min-height: calc(60px + 12px);
-    border: 6px solid #00FFCB;
     box-shadow: 0 0 60px rgba(0,255,203,.64);
     position: absolute;
     top: 50%;
@@ -92,24 +98,24 @@
     transition: all .3s ease-in-out 0s;
   }
 
-  .contact-form-cf .icon:hover, .icon:focus {
+  .contact-form-cf .box.showing .m-cf-icon-default:hover {
     color: #313133;
     transform: translateY(-6px);
   }
 
-  .contact-form-cf .icon:focus {
+  .contact-form-cf .box.showing .m-cf-icon-default:focus {
     color: #313133;
     transform: translateY(-6px);
   }
 
-  .contact-form-cf .icon:hover::before {
+  .contact-form-cf .box.showing .m-cf-icon-default:hover::before {
     opacity: 1;
   }
-  .contact-form-cf .icon:focus::before {
+  .contact-form-cf .box.showing .m-cf-icon-default:focus::before {
     opacity: 1;
   }
 
-  .contact-form-cf .icon::after {
+  .contact-form-cf .box.showing .m-cf-icon-default::after {
     content: '';
     width: 30px; height: 30px;
     border-radius: 100%;
@@ -122,11 +128,11 @@
     animation: ring 1.5s infinite;
   }
   
-  .contact-form-cf .icon:hover::after {
+  .contact-form-cf .box.showing .m-cf-icon-default:hover::after {
     animation: none;
     display: none;
   }
-  .contact-form-cf .icon:focus::after {
+  .contact-form-cf .box.showing .m-cf-icon-default:focus::after {
     animation: none;
     display: none;
   }
@@ -142,13 +148,6 @@
     height: 300px;
     opacity: 0;
   }
-}
-
-/* Animation Ends */
-.contact-form-cf .box.showing .m-cf-icon-default {
-  opacity: 0;
-  -webkit-transform: scale(0);
-  transform: scale(0);
 }
 
 .contact-form-cf .box.showing .icon {
