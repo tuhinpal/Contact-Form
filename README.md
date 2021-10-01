@@ -26,9 +26,23 @@
 
 - Paste this Script :
 
+Script have two options: Simple and animated
+
+Simple:
+
 ```html
 <script
   src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js"
+  id="contactform"
+  form_worker_url="https://yourapp.example.workers.dev/"
+></script>
+
+<!-- Replace https://yourapp.example.workers.dev with your backend URL-->
+```
+Animated:
+```html
+<script
+  src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form-animate.min.js"
   id="contactform"
   form_worker_url="https://yourapp.example.workers.dev/"
 ></script>
