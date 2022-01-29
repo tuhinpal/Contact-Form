@@ -57,6 +57,7 @@ window.onload = () => {
     var cfresult = JSON.parse(localStorage.getItem("contact-form"));
     if (
       getElemById("contactform").getAttribute("disable_waittime") !== "true" &&
+      cfresult &&
       cfresult.sent &&
       cfresult.canSendUnix > new Date().getTime()
     ) {
