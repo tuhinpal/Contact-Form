@@ -1,7 +1,41 @@
-// Error & success message
-var cferrmsg = `<h3 class="title">Error</h3><p>Sorry, an error occurred while receiving your message, Try to contact with me in another method.</p>`;
-var cfsuccessmsg = `<h3 class="title">Message Sent</h3><p>Your message has been successfully came to me, I will contact with you soon. 🍻</p>`;
-var cfformcontent = `<h3 class="title">Contact</h3><p>Send me a message I will contact with you soon.</p><div><input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="Name" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="Email" autocomplete="off" data-required="true" data-validation="email"><input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="Phone No" autocomplete="off" data-required="true"><input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="Subject" autocomplete="off" data-required="true"><textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="Your message" data-required="true"></textarea><button id="cfbutton" onclick="cfmessageSend()" class="form-button color">Send your message</button><a href="https://github.com/cachecleanerjeet/Contact-Form" class="cfpromo">Powered by Contact Form</a></div>`;
+// Configurations
+const cfConfig = {
+  cssBase:
+    getElemById("contactform").src.split("/src")[0] ||
+    "https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master",
+  error: {
+    title: "Error",
+    message:
+      getElemById("contactform").getAttribute("error_text") ||
+      "Sorry, an error occurred while receiving your message, Try to contact with me in another method.",
+  },
+  success: {
+    title: "Message Sent",
+    message:
+      getElemById("contactform").getAttribute("success_text") ||
+      "Thank you for contacting me, I will get back to you soon.",
+  },
+};
+
+const cfbody = `
+<div class="box right-button" id="cf" style="display: inline-block; z-index: 9999;">
+	<div class="button color" onclick="cfClick();"><span class="m-cf-icon-default"><i class="material-icons">email</i></span><span class="icon"><i class="material-icons">close</i></span></div>
+	<div class="panel" id="cfcontent"></div>
+</div>
+`;
+
+const cfform = `
+<h3 class="title">Contact</h3>
+<p>Send me a message I will contact with you soon.</p>
+<div>
+	<input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="Name" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="Email" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="Phone No" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="Subject" autocomplete="off">
+	<textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="Your message"></textarea>
+	<button id="cfbutton" onclick="cfSubmitMessage()" class="form-button color">Send your message</button><a href="https://github.com/cachecleanerjeet/Contact-Form" class="cfpromo">Powered by Contact Form</a>
+</div>
+`;
 
 window.onload = () => {
   // init everything after page load
@@ -9,67 +43,69 @@ window.onload = () => {
   // Add stylesheet
   var cfstylesheet = document.createElement("link");
   cfstylesheet.rel = "stylesheet";
-  cfstylesheet.href =
-    "https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/style.min.css";
+  cfstylesheet.href = `${cfConfig.cssBase}/src/style.min.css`;
   document.getElementsByTagName("head")[0].appendChild(cfstylesheet);
 
   cfstylesheet.onload = function () {
     // If css loaded, add main html to body
     var cfdiv = document.createElement("section");
     cfdiv.classList.add("contact-form-cf");
-    cfdiv.innerHTML = `<div class="box right-button" id="cf" style="display: inline-block; z-index: 9999;"><div class="button color" onclick="cfClick();"><span class="m-cf-icon-default"><i class="material-icons">email</i></span><span class="icon"><i class="material-icons">close</i></span></div><div class="panel" id="cfcontent"></div></div>`;
+    cfdiv.innerHTML = cfbody;
     document.getElementsByTagName("body")[0].appendChild(cfdiv);
 
-    // check localstorage for if he already sent a message
+    // check localstorage for if already sent a message
     var cfresult = JSON.parse(localStorage.getItem("contact-form"));
-    if (cfresult && cfresult.sent) {
-      if (cfresult.canSendUnix > new Date().getTime()) {
-        document.getElementById("cfcontent").innerHTML = cfsuccessmsg;
-      } else {
-        document.getElementById("cfcontent").innerHTML = cfformcontent;
-      }
+    if (
+      getElemById("contactform").getAttribute("disable_waittime") !== "true" &&
+      cfresult.sent &&
+      cfresult.canSendUnix > new Date().getTime()
+    ) {
+      getElemById("cfcontent").innerHTML = createHtmlFromObj(cfConfig.success);
     } else {
-      document.getElementById("cfcontent").innerHTML = cfformcontent;
+      getElemById("cfcontent").innerHTML = cfform;
     }
   };
 };
 
-// Show/Hide contact form
+/**
+ * Show/Hide contact form.
+ * @constructor
+ */
 function cfClick() {
-  document.getElementById("cf").classList.toggle("showing-state");
-  document.getElementById("cf").classList.toggle("showing");
+  getElemById("cf").classList.toggle("showing-state");
+  getElemById("cf").classList.toggle("showing");
 }
 
-// Send message
-async function cfmessageSend() {
+/**
+ * Send message.
+ * @constructor
+ */
+async function cfSubmitMessage() {
   var cfvalue = {
-    name: document.getElementById("cfname").value,
-    email: document.getElementById("cfemail").value.toLowerCase(),
-    phone_no: document.getElementById("cfphone").value,
-    subject: document.getElementById("cfsubject").value,
-    message: document.getElementById("cfmessage").value,
+    name: getElemById("cfname").value,
+    email: getElemById("cfemail").value.toLowerCase(),
+    phone_no: getElemById("cfphone").value,
+    subject: getElemById("cfsubject").value,
+    message: getElemById("cfmessage").value,
   };
 
+  let emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
   if (cfvalue.name === "") {
-    document.getElementById("cfname").classList.add("error");
-  } else if (
-    cfvalue.email === "" ||
-    !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      cfvalue.email
-    )
-  ) {
-    document.getElementById("cfemail").classList.add("error");
+    getElemById("cfname").classList.add("error");
+  } else if (!emailRegex.test(cfvalue.email)) {
+    getElemById("cfemail").classList.add("error");
   } else if (cfvalue.phone_no === "") {
-    document.getElementById("cfphone").classList.add("error");
+    getElemById("cfphone").classList.add("error");
   } else if (cfvalue.subject === "") {
-    document.getElementById("cfsubject").classList.add("error");
+    getElemById("cfsubject").classList.add("error");
   } else if (cfvalue.message === "") {
-    document.getElementById("cfmessage").classList.add("error");
+    getElemById("cfmessage").classList.add("error");
   } else {
-    document.getElementById("cfbutton").removeAttribute("onclick");
-    document.getElementById("cfbutton").classList.remove("color");
-    document.getElementById("cfbutton").classList.add("onclick");
-    document.getElementById("cfbutton").innerHTML = "Sending...";
+    getElemById("cfbutton").removeAttribute("onclick");
+    getElemById("cfbutton").classList.remove("color");
+    getElemById("cfbutton").classList.add("onclick");
+    getElemById("cfbutton").innerHTML = "Sending...";
 
     try {
       var sendmessage = await (
@@ -85,7 +121,9 @@ async function cfmessageSend() {
       ).json();
 
       if (sendmessage.status) {
-        document.getElementById("cfcontent").innerHTML = cfsuccessmsg;
+        getElemById("cfcontent").innerHTML = createHtmlFromObj(
+          cfConfig.success
+        );
 
         // Freeze the form for half day
         localStorage.setItem(
@@ -100,12 +138,31 @@ async function cfmessageSend() {
       }
     } catch (error) {
       console.log(error);
-      document.getElementById("cfcontent").innerHTML = cferrmsg;
+      getElemById("cfcontent").innerHTML = createHtmlFromObj(cfConfig.error);
     }
   }
 }
 
-// Change error class on input change
+/**
+ * Change error class on input change.
+ * @constructor
+ */
 function cfonChange(id) {
-  document.getElementById(id).classList.remove("error");
+  getElemById(id).classList.remove("error");
+}
+
+/**
+ * Grab element by id.
+ * @constructor
+ */
+function getElemById(id) {
+  return document.getElementById(id);
+}
+
+/**
+ * Create html from object
+ * @constructor
+ */
+function createHtmlFromObj({ title, message }) {
+  return `<h3 class="title">${title}</h3><p>${message}</p>`;
 }

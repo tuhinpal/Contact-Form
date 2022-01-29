@@ -1,4 +1,4 @@
-[![Contact Form](https://telegra.ph/file/052787c00bcbc37cb88a0.png "Contact Form")](https://github.com/cachecleanerjeet/Contact-Form "Contact Form")
+[![Contact Form](https://telegra.ph/file/052787c00bcbc37cb88a0.png "Contact Form")](https://github.com/tuhinpal/Contact-Form "Contact Form")
 
 ---
 
@@ -17,7 +17,7 @@
 - Create a Telegram Bot from [Botfather](http://telegram.dog/botfather "Botfather") & Grab the Token.
 - Goto your created bot and send <code>/start</code>.
 - Now GoTo [userinfobot](http://telegram.dog/userinfobot "userinfobot") send it any message it will give your Telegram ID (9 Digit) and copy the ID.
-- Open <code>[cf-worker.js](https://github.com/cachecleanerjeet/Contact-Form/blob/main/cf-worker.js "cf-worker.js")</code> and copy the whole code.
+- Open <code>[cf-worker.js](https://github.com/tuhinpal/Contact-Form/blob/main/cf-worker.js "cf-worker.js")</code> and copy the whole code.
 - Go to <code>[Cloudflare Workers](https://workers.cloudflare.com/ "Cloudflare Workers")</code> and create a worker & paste the copied code.
 - Replace the <code>BOT_TOKEN</code> & <code>CHATID</code> with your previously copied Bot Token and User ID.
 - Save and Deploy & copy the Worker Url
@@ -27,18 +27,28 @@
 - Paste this Script :
 
 ```html
-<script
-  src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js"
-  id="contactform"
-  form_worker_url="https://yourapp.example.workers.dev/"
-></script>
+<!--- 
 
-<!-- Replace https://yourapp.example.workers.dev with your backend URL-->
+    error_text: Message to display if there is an error.
+    success_text: Message to display if the form is successfully submitted.
+    disable_waittime: If true, it will not froze a new form subission (after one is successfull) for half a day.
+    form_worker_url: URL to the cloudflare backend.
+
+  -->
+
+<script
+  src="/src/contact-form.js"
+  id="contactform"
+  error_text=""
+  success_text=""
+  disable_waittime="true"
+  form_worker_url="https://contact-form.tprojects.workers.dev/"
+></script>
 ```
 
 **Use The Backend API 👇**
 
-- This is very simple too, Just do a POST or GET request with this JSON Body
+- This is very simple too, Just do a POST request with this JSON Body
 
 ```JSON
 {
@@ -57,5 +67,5 @@
 
 ### License & Copyright :
 
-- This Project is [Apache-2.0](https://github.com/cachecleanerjeet/Contact-Form/blob/main/LICENSE) Licensed
-- Copyright 2021 by [Tuhin Kanti Pal](https://github.com/cachecleanerjeet)
+- This Project is [Apache-2.0](https://github.com/tuhinpal/Contact-Form/blob/main/LICENSE) Licensed
+- Copyright 2022 by [Tuhin Kanti Pal](https://github.com/tuhinpal)

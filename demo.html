@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact Form Demo</title>
-</head>
+  </head>
 
-<body>
+  <body>
     This is a Demo
-</body>
-<script src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js" id="contactform"
-    form_worker_url="https://contact-form.tprojects.workers.dev/"></script>
+  </body>
 
+  <!--- 
+    error_text: Message to display if there is an error.
+    success_text: Message to display if the form is successfully submitted.
+    disable_waittime: If true, it will not froze a new form subission (after one is successfull) for half a day.
+    form_worker_url: URL to the cloudflare backend.
+  -->
 
+  <script
+    src="https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master/src/contact-form.min.js"
+    id="contactform"
+    error_text=""
+    success_text=""
+    disable_waittime="true"
+    form_worker_url="https://contact-form.tprojects.workers.dev/"
+  ></script>
 </html>
