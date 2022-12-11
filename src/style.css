@@ -1,5 +1,15 @@
+@import url(https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,700);
+
+* {
+  font-family: Vazirmatn, Nunito Sans;
+}
+
+body{
+  direction: rtl;
+}
+
 .contact-form-cf .box {
   position: fixed;
   z-index: 999;
@@ -11,7 +21,6 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   line-height: 1.4;
-  text-align: left;
 }
 
 .contact-form-cf .box * {
@@ -128,7 +137,7 @@
   margin: 0;
   padding: 0;
   font-size: 24px;
-  font-family: Nunito Sans;
+  font-family: Vazirmatn, Nunito Sans;
   margin-bottom: 15px;
 }
 
@@ -210,4 +219,15 @@
   font-size: 6px;
   margin-top: 0;
   padding: 0;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

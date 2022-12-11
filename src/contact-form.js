@@ -1,19 +1,18 @@
 // Configurations
 const cfConfig = {
   cssBase:
-    getElemById("contactform").src.split("/src")[0] ||
-    "https://cdn.jsdelivr.net/gh/cachecleanerjeet/contact-form@master",
+    getElemById("contactform").src.split("/src")[0],
   error: {
-    title: "Error",
+    title: "😞 خطا",
     message:
       getElemById("contactform").getAttribute("error_text") ||
-      "Sorry, an error occurred while receiving your message, Try to contact with me in another method.",
+      "با عرض پوزش، هنگام دریافت پیام شما خطایی رخ داد، سعی کنید با روش دیگری با من تماس بگیرید.",
   },
   success: {
-    title: "Message Sent",
+    title: "پیام ارسال شد 😉",
     message:
       getElemById("contactform").getAttribute("success_text") ||
-      "Thank you for contacting me, I will get back to you soon.",
+      "از اینکه با من تماس گرفتید متشکرم، به زودی با شما تماس خواهم گرفت.",
   },
 };
 
@@ -25,15 +24,15 @@ const cfbody = `
 `;
 
 const cfform = `
-<h3 class="title">Contact</h3>
-<p>Send me a message I will contact with you soon.</p>
+<h3 class="title">تماس باما</h3>
+<p>به من پیام دهید به زودی با شما تماس خواهم گرفت.</p>
 <div>
-	<input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="Name" autocomplete="off">
-	<input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="Email" autocomplete="off">
-	<input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="Phone No" autocomplete="off">
-	<input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="Subject" autocomplete="off">
-	<textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="Your message"></textarea>
-	<button id="cfbutton" onclick="cfSubmitMessage()" class="form-button color">Send your message</button><a href="https://github.com/cachecleanerjeet/Contact-Form" class="cfpromo">Powered by Contact Form</a>
+	<input class="element" onchange="cfonChange('cfname')" id="cfname" type="text" name="name" placeholder="نام" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfemail')" id="cfemail" type="text" name="email" placeholder="ایمیل" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfphone')" id="cfphone" type="number" name="phoneno" placeholder="تلفن همراه" autocomplete="off">
+	<input class="element" onchange="cfonChange('cfsubject')" id="cfsubject" type="text" name="subject" placeholder="موضوع" autocomplete="off">
+	<textarea class="element" onchange="cfonChange('cfmessage')" id="cfmessage" name="message" placeholder="پیام شما"></textarea>
+	<button id="cfbutton" onclick="cfSubmitMessage()" class="form-button color">ارسال پیام شما</button><a href="https://github.com/mamalli11/Contact-Form" class="cfpromo">Powered by Contact Form</a>
 </div>
 `;
 

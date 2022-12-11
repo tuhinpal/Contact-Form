@@ -1,8 +1,8 @@
 // Bot API Key
-const BOT_TOKEN = "123456789:abcdefghijklmnopqrstuvwxyz";
+const BOT_TOKEN = "***********************************************";
 
 // Your Telegram USER ID
-const CHATID = "981558170";
+const CHATID = "*********";
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
@@ -19,7 +19,7 @@ async function handleRequest(request) {
     });
   } else if (new URL(request.url).pathname == "/" && !request.body) {
     return Response.redirect(
-      "https://github.com/cachecleanerjeet/Contact-form",
+      "https://github.com/mamalli11/Contact-form",
       301
     );
   } else {
@@ -42,7 +42,7 @@ async function handleRequest(request) {
             "Content-Type": "application/json",
             "Cache-Control": "no-cache, no-store, must-revalidate",
             "Access-Control-Allow-Origin": "*",
-            "Made-By": "https://github.com/cachecleanerjeet",
+            "Made-By": "https://github.com/mamalli11",
           },
         }
       );
@@ -52,9 +52,9 @@ async function handleRequest(request) {
         {
           body: JSON.stringify({
             chat_id: CHATID,
-            text: `<b>New Contact Request Recieved</b>\n\n<b>IP: </b><code>${request.headers.get(
+            text: `<b>درخواست تماس جدید دریافت شد</b>\n\n<b>IP: </b><code>${request.headers.get(
               "cf-connecting-ip"
-            )}</code>\n<b>Name: </b><code>${name}</code>\n<b>Phone No: </b>${phone_no}\n<b>Email: </b>${email}\n<b>Subject: </b><code>${subject}</code>\n<b>Message: </b><code>${message}</code>`,
+            )}</code>\n<b>نام: </b><code>${name}</code>\n<b>تلفن همراه: </b>${phone_no}\n<b>ایمیل: </b>${email}\n<b>موضوع: </b><code>${subject}</code>\n<b>پیام: </b><code>${message}</code>`,
             parse_mode: "HTML",
           }),
           method: "POST",
@@ -67,12 +67,12 @@ async function handleRequest(request) {
       if (results.ok == true) {
         var status = {
           status: true,
-          msg: "Message sent successfully",
+          msg: "پیام با موفقیت ارسال شد",
         };
       } else {
         var status = {
           status: false,
-          msg: "Error while sending the message",
+          msg: "خطا در هنگام ارسال پیام",
         };
       }
       return new Response(JSON.stringify(status), {
@@ -81,7 +81,7 @@ async function handleRequest(request) {
           "Content-Type": "application/json",
           "Cache-Control": "no-cache, no-store, must-revalidate",
           "Access-Control-Allow-Origin": "*",
-          "Made-By": "https://github.com/cachecleanerjeet",
+          "Made-By": "https://github.com/mamalli11",
         },
       });
     }
