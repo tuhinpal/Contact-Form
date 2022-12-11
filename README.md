@@ -10,6 +10,9 @@
 - Serverless Backend (Cloudflare Worker)
 - One Line of Integration
 
+- **Right to left 👌🏻**
+- **Persian translation 🫰🏻**
+
 ### Deploy :
 
 **Setup the Backend 👇**
